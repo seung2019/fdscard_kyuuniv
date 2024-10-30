@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거래 완료</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .result-container {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container.fraud {
+            background-color: #ff5252;
+        }
+
+        .result-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .result-message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .result-details {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="result-container" class="result-container">
+        <div class="result-icon">📊</div>
+        <div id="result-message" class="result-message"></div>
+        <div id="result-details" class="result-details"></div>
+    </div>
+
+    <script>
+        // URL에서 prediction 값을 가져옴
+        var urlParams = new URLSearchParams(window.location.search);
+        var prediction = parseInt(urlParams.get('prediction'));
+
+        // 요소 선택
+        var container = document.getElementById('result-container');
+        var message = document.getElementById('result-message');
+        var details = document.getElementById('result-details');
+
+        // 결과값에 따른 메시지 설정
+        if (prediction === 1) {
+            container.classList.add('fraud');
+            message.innerText = '사기 거래가 감지되었습니다!';
+            details.innerText = '사기 거래가 의심됩니다. 가족의 전화를 기다려주세요.';
+        } else {
+            message.innerText = '거래가 완료되었습니다.';
+        }
+    </script>
+
+</body>
+</html>

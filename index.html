@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제 정보 입력</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4caf50;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>결제 정보 입력</h1>
+        <form action="payment_request.php" method="post">
+            <label for="age">나이 :</label>
+            <select id="age" name="age" required>
+                <option value="0">미취학아동</option>
+                <option value="1">청소년</option>
+                <option value="2">20대</option>
+                <option value="3">30대</option>
+                <option value="4">40대</option>
+                <option value="5">50대</option>
+                <option value="6">60대</option>
+                <option value="U">70대 이상</option>
+            </select>
+            <label for="gender">성별 :</label>
+            <select id="gender" name="gender" required>
+                <option value="0">남성</option>
+                <option value="1">여성</option>
+            </select>
+            <label for="category">구매 품목(카테고리) :</label>
+            <select id="category" name="category" required>
+                <option value="0">교통</option>
+                <option value="1">건강</option>
+                <option value="2">기타 서비스</option>
+                <option value="3">음식</option>
+                <option value="4">호텔 서비스</option>
+                <option value="5">바 및 레스토랑</option>
+                <option value="6">기술</option>
+                <option value="7">스포츠 및 장난감</option>
+                <option value="8">웰빙 및 미용</option>
+                <option value="9">대형마트</option>
+                <option value="10">패션</option>
+                <option value="11">가정</option>
+                <option value="12">콘텐츠</option>
+                <option value="13">여행</option>
+                <option value="14">레저</option>
+            </select>
+            <label for="amount">구매 가격(만원) :</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+            <label for="card_number">카드 번호 :</label>
+            <input type="number" id="card_number" name="card_number" required>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
